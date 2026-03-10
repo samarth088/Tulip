@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You 🌷</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+overflow:hidden;
+font-family:'Poppins',sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+}
+
+/* background glow circles */
+
+body::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:radial-gradient(circle,#ffffff22 15%,transparent 16%) 0 0/200px 200px;
+animation:bgmove 25s linear infinite;
+}
+
+@keyframes bgmove{
+from{background-position:0 0}
+to{background-position:600px 600px}
+}
+
+/* main container */
+
+.container{
+position:relative;
+z-index:10;
+max-width:500px;
+}
+
+/* bouquet */
+
+.bouquet{
+font-size:120px;
+margin-bottom:20px;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
+}
+
+/* message */
+
+.message{
+font-size:28px;
+line-height:1.5;
+padding:20px;
+
+background:rgba(255,255,255,0.1);
+border-radius:15px;
+backdrop-filter:blur(10px);
+
+box-shadow:0 0 30px #ff7eb3;
+
+animation:fade 2s;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+/* hearts */
+
+.heart{
+position:absolute;
+font-size:26px;
+animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(0)}
+100%{transform:translateY(-110vh)}
+}
+
+/* tulip petals */
+
+.tulip{
+position:absolute;
+font-size:34px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-20vh) rotate(0deg)}
+100%{transform:translateY(110vh) rotate(360deg)}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="bouquet">💐</div>
+
+<div class="message">
+🌷 A Little Tulip For You 🌷<br><br>
+
+Just wanted to send you a small bouquet  
+to remind you that you deserve smiles today.  
+
+No matter how your day feels right now,  
+I hope this little surprise makes it  
+just a bit brighter.  
+
+❤️ Keep smiling ❤️
+</div>
+
+</div>
+
+<script>
+
+/* hearts */
+
+for(let i=0;i<15;i++){
+
+let h=document.createElement("div")
+h.className="heart"
+h.innerHTML="❤️"
+
+h.style.left=Math.random()*100+"vw"
+h.style.bottom="-20px"
+h.style.animationDuration=(5+Math.random()*4)+"s"
+
+document.body.appendChild(h)
+
+}
+
+/* tulips */
+
+for(let i=0;i<20;i++){
+
+let t=document.createElement("div")
+t.className="tulip"
+t.innerHTML="🌷"
+
+t.style.left=Math.random()*100+"vw"
+t.style.animationDuration=(6+Math.random()*4)+"s"
+
+document.body.appendChild(t)
+
+}
+
+</script>
+
+</body>
+</html>
