@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You 🌷</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#0f172a;
+font-family:Arial;
+color:white;
+overflow:hidden;
+}
+
+#envelope{
+text-align:center;
+cursor:pointer;
+}
+
+#envelope img{
+width:140px;
+}
+
+#openText{
+margin-top:10px;
+font-size:20px;
+}
+
+#scene{
+display:none;
+text-align:center;
+}
+
+.tulip{
+position:absolute;
+font-size:30px;
+animation:fall 6s linear infinite;
+}
+
+.heart{
+position:absolute;
+font-size:22px;
+color:#ff4d6d;
+animation:float 5s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-50px)}
+100%{transform:translateY(110vh)}
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+100%{transform:translateY(-100vh)}
+}
+
+#message{
+margin-top:20px;
+font-size:22px;
+max-width:300px;
+}
+
+.firework{
+position:absolute;
+width:6px;
+height:6px;
+background:white;
+border-radius:50%;
+animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+0%{transform:scale(1);opacity:1}
+100%{transform:scale(20);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<div id="envelope">
+<div style="font-size:80px">✉️</div>
+<div id="openText">Open</div>
+</div>
+
+<div id="scene">
+<h1>🌷</h1>
+<div id="message">
+Hey… just a little tulip surprise for you 🌷  
+I hope you smile a little today.  
+Love to see you smiling ❤️
+</div>
+</div>
+
+<script>
+
+const env = document.getElementById("envelope");
+const scene = document.getElementById("scene");
+
+env.onclick = () => {
+env.style.display="none";
+scene.style.display="block";
+startTulips();
+startHearts();
+fireworks();
+};
+
+function startTulips(){
+for(let i=0;i<15;i++){
+let t=document.createElement("div");
+t.className="tulip";
+t.innerHTML="🌷";
+t.style.left=Math.random()*100+"vw";
+t.style.animationDuration=(4+Math.random()*4)+"s";
+document.body.appendChild(t);
+}
+}
+
+function startHearts(){
+for(let i=0;i<12;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+h.style.bottom="-20px";
+h.style.animationDuration=(4+Math.random()*3)+"s";
+document.body.appendChild(h);
+}
+}
+
+function fireworks(){
+for(let i=0;i<25;i++){
+let f=document.createElement("div");
+f.className="firework";
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*60+"vh";
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),1000);
+}
+}
+
+</script>
+
+</body>
+  </html>
